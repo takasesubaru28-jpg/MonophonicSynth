@@ -6,7 +6,7 @@
 
 namespace Steinberg {
     namespace Vst {
-        namespace miniMoog_typeT {
+        namespace MonophonicSynth {
 
             template<class SamplePrecision>
             class Noise
@@ -52,6 +52,6 @@ namespace Steinberg {
                 }
             };
 
-        } // namespace miniMoog_typeT
+        } // namespace MonophonicSynth
     } // namespace Vst
 } // namespace Steinberg

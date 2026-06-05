@@ -1,45 +1,45 @@
-// VST3 SDK‚ÌƒCƒ“ƒNƒ‹[ƒhƒtƒ@ƒCƒ‹
+// VST3 SDKï¿½ÌƒCï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½[ï¿½hï¿½tï¿½@ï¿½Cï¿½ï¿½
 #include "public.sdk/source/main/pluginfactory.h"
 
-// Ž©ìVST‚Ìƒwƒbƒ_ƒtƒ@ƒCƒ‹‚ðƒCƒ“ƒNƒ‹[ƒh
+// ï¿½ï¿½ï¿½ï¿½VSTï¿½Ìƒwï¿½bï¿½_ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½[ï¿½h
 #include "fuid.h"
 #include "processor.h"
 #include "controller.h"
 
-// »ìŽÒ(»ì‰ïŽÐ)‚Ì–¼‘OBI’[•¶Žšu\0vŠÜ‚ß‚Ä64•¶Žš‚Ü‚ÅB
-#define MYVST_VENDOR   "takaseS"
+// ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)ï¿½Ì–ï¿½ï¿½Oï¿½Bï¿½Iï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½u\0ï¿½vï¿½Ü‚ß‚ï¿½64ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ÅB
+#define MYVST_VENDOR   "takase.subaru28"
 
-// »ìŽÒ(»ì‰ïŽÐ)‚ÌWebƒTƒCƒg‚ÌURLBI’[•¶Žšu\0vŠÜ‚ß‚Ä256•¶Žš‚Ü‚ÅB
+// ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)ï¿½ï¿½Webï¿½Tï¿½Cï¿½gï¿½ï¿½URLï¿½Bï¿½Iï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½u\0ï¿½vï¿½Ü‚ß‚ï¿½256ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ÅB
 #define MYVST_URL      ""
 
-// »ìŽÒ(»ì‰ïŽÐ)‚Ì˜A—æƒ[ƒ‹ƒAƒhƒŒƒXBI’[•¶Žšu\0vŠÜ‚ß‚Ä128•¶Žš‚Ü‚ÅB
+// ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)ï¿½Ì˜Aï¿½ï¿½ï¿½æƒï¿½[ï¿½ï¿½ï¿½Aï¿½hï¿½ï¿½ï¿½Xï¿½Bï¿½Iï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½u\0ï¿½vï¿½Ü‚ß‚ï¿½128ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ÅB
 #define MYVST_EMAIL    ""
 
-// Ž©ì‚·‚éVST‚Ì–¼‘OBI’[•¶Žšu\0vŠÜ‚ß‚Ä64•¶Žš‚Ü‚ÅB
-#define MYVST_VSTNAME  "miniMoog_modelT"
+// ï¿½ï¿½ï¿½ì‚·ï¿½ï¿½VSTï¿½Ì–ï¿½ï¿½Oï¿½Bï¿½Iï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½u\0ï¿½vï¿½Ü‚ß‚ï¿½64ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ÅB
+#define MYVST_VSTNAME  "Monophonic Synth"
 
-// Ž©ì‚·‚éVST‚Ìƒo[ƒWƒ‡ƒ“BI’[•¶Žšu\0vŠÜ‚ß‚Ä64•¶Žš‚Ü‚ÅB
+// ï¿½ï¿½ï¿½ì‚·ï¿½ï¿½VSTï¿½Ìƒoï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½Bï¿½Iï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½u\0ï¿½vï¿½Ü‚ß‚ï¿½64ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ÅB
 #define MYVST_VERSION  "0" 
 
-// Ž©ì‚·‚éVST‚ÌƒJƒeƒSƒŠBI’[•¶Žšu\0vŠÜ‚ß‚Ä64•¶Žš‚Ü‚ÅB
+// ï¿½ï¿½ï¿½ì‚·ï¿½ï¿½VSTï¿½ÌƒJï¿½eï¿½Sï¿½ï¿½ï¿½Bï¿½Iï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½u\0ï¿½vï¿½Ü‚ß‚ï¿½64ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ÅB
 #define MYVST_SUBCATEGORIES Vst::PlugType::kInstrument
 
 
 // ===================================================================================
-// DLLƒtƒ@ƒCƒ‹‚Ì‰Šú‰»AI—¹ˆ—ŠÖ”
+// DLLï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öï¿½
 // ===================================================================================
-// Šî–{“I‚É‰½‚à‚·‚é•K—v‚Í‚È‚¢B(VST SDK 3.7.1‚æ‚è‘O‚Ìƒo[ƒWƒ‡ƒ“‚Ìê‡‚ÍƒRƒƒ“ƒg‚ðŠO‚·‚±‚Æ)
+// ï¿½ï¿½{ï¿½Iï¿½É‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Kï¿½vï¿½Í‚È‚ï¿½ï¿½B(VST SDK 3.7.1ï¿½ï¿½ï¿½Oï¿½Ìƒoï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½Ìê‡ï¿½ÍƒRï¿½ï¿½ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 //bool InitModule() { return true; }
 //bool DeinitModule() { return true; }
 
 
 // ===================================================================================
-// Ž©ìVSTƒvƒ‰ƒOƒCƒ“‚Ì¶¬
+// ï¿½ï¿½ï¿½ï¿½VSTï¿½vï¿½ï¿½ï¿½Oï¿½Cï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½
 // ===================================================================================
 BEGIN_FACTORY_DEF(MYVST_VENDOR, MYVST_URL, MYVST_EMAIL)
 
-	// ProcessorƒNƒ‰ƒX‚Ìì¬‚ðs‚¤
-	DEF_CLASS2(INLINE_UID_FROM_FUID(Steinberg::Vst::miniMoog_typeT::ProcessorUID),
+	// Processorï¿½Nï¿½ï¿½ï¿½Xï¿½Ìì¬ï¿½ï¿½ï¿½sï¿½ï¿½
+	DEF_CLASS2(INLINE_UID_FROM_FUID(Steinberg::Vst::MonophonicSynth::ProcessorUID),
 		PClassInfo::kManyInstances,
 		kVstAudioEffectClass,
 		MYVST_VSTNAME,
@@ -47,17 +47,17 @@ BEGIN_FACTORY_DEF(MYVST_VENDOR, MYVST_URL, MYVST_EMAIL)
 		MYVST_SUBCATEGORIES,
 		MYVST_VERSION,
 		kVstVersionString,
-		Steinberg::Vst::miniMoog_typeT::Processor::createInstance)
+		Steinberg::Vst::MonophonicSynth::Processor::createInstance)
 
-	// ControllerƒNƒ‰ƒX‚Ìì¬‚ðs‚¤
-	DEF_CLASS2(INLINE_UID_FROM_FUID(Steinberg::Vst::miniMoog_typeT::ControllerUID),
+	// Controllerï¿½Nï¿½ï¿½ï¿½Xï¿½Ìì¬ï¿½ï¿½ï¿½sï¿½ï¿½
+	DEF_CLASS2(INLINE_UID_FROM_FUID(Steinberg::Vst::MonophonicSynth::ControllerUID),
 		PClassInfo::kManyInstances,
 		kVstComponentControllerClass,
-		MYVST_VSTNAME " Controller",	// Ž©ìVST‚Ì–¼‘O‚É"Controller"‚ð•t—^‚µ‚½‚à‚ÌB
-		0,						    // Žg‚í‚È‚¢‚Ì‚Å•K‚¸0‚É‚·‚é
-		"",						    // Žg‚í‚È‚¢‚Ì‚Å•K‚¸""‚É‚·‚é
+		MYVST_VSTNAME " Controller",	// ï¿½ï¿½ï¿½ï¿½VSTï¿½Ì–ï¿½ï¿½Oï¿½ï¿½"Controller"ï¿½ï¿½tï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÌB
+		0,						    // ï¿½gï¿½ï¿½È‚ï¿½ï¿½Ì‚Å•Kï¿½ï¿½0ï¿½É‚ï¿½ï¿½ï¿½
+		"",						    // ï¿½gï¿½ï¿½È‚ï¿½ï¿½Ì‚Å•Kï¿½ï¿½""ï¿½É‚ï¿½ï¿½ï¿½
 		MYVST_VERSION,
 		kVstVersionString,
-		Steinberg::Vst::miniMoog_typeT::Controller::createInstance)
+		Steinberg::Vst::MonophonicSynth::Controller::createInstance)
 
 	END_FACTORY

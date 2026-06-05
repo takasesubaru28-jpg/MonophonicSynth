@@ -14,7 +14,7 @@ using namespace std;
 // VST3作成に必要なの名前空間を使用
 namespace Steinberg {
 	namespace Vst {
-		namespace miniMoog_typeT {
+		namespace MonophonicSynth {
 
 			// ===================================================================================
 			// 音声信号を処理するProcessorクラス

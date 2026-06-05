@@ -8,7 +8,7 @@
 
 namespace Steinberg {
     namespace Vst {
-        namespace miniMoog_typeT {
+        namespace MonophonicSynth {
 
             class Contour
             {
@@ -160,6 +160,6 @@ namespace Steinberg {
                 }
             }
 
-        } // namespace miniMoog_typeT
+        } // namespace MonophonicSynth
     } // namespace Vst
 } // namespace Steinberg

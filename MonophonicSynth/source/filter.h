@@ -12,7 +12,7 @@
 
 namespace Steinberg {
     namespace Vst {
-        namespace miniMoog_typeT {
+        namespace MonophonicSynth {
 
             class Filter
             {
@@ -121,7 +121,7 @@ namespace Steinberg {
                 return y_n0;
             }
 
-        } // namespace miniMoog_typeT
+        } // namespace MonophonicSynth
     } // namespace Vst
 } // namespace Steinberg
 #pragma once

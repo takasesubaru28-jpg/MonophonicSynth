@@ -5,7 +5,7 @@
 
 namespace Steinberg {
 	namespace Vst {
-		namespace miniMoog_typeT {
+		namespace MonophonicSynth {
 
 			// オシレータで使用する波形の定義
 			enum class WaveType

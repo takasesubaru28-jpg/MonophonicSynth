@@ -1,19 +1,19 @@
 cmake_minimum_required(VERSION 3.15)
 set(CMAKE_SYSTEM_VERSION 10.0 CACHE STRING "Windows SDK version" FORCE)
-project(Mini_Moog VERSION 1.0.0)
+project(MonophonicSynth VERSION 1.0.0)
 
-# --- C++17有効化 (VSTGUI4に必須) ---
+# --- C++17有効匁E(VSTGUI4に忁E��E ---
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-# --- 1. パス設定 ---
-# 親ディレクトリにある vst3sdk を参照
+# --- 1. パス設宁E---
+# 親チE��レクトリにある vst3sdk を参照
 get_filename_component(PARENT_DIR "${CMAKE_CURRENT_SOURCE_DIR}" DIRECTORY)
 set(VST3_SDK_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/vst3sdk")
 
-# --- 2. ターゲット作成 (DLLとして定義) ---
-add_library(Mini_Moog MODULE
+# --- 2. ターゲチE��作�E (DLLとして定義) ---
+add_library(MonophonicSynth MODULE
     source/contour.h
     source/controller.cpp
     source/controller.h
@@ -29,29 +29,29 @@ add_library(Mini_Moog MODULE
     "${VST3_SDK_ROOT}/public.sdk/source/main/dllmain.cpp"
 )
 
-# --- 3. インクルードディレクトリの設定 ---
-target_include_directories(Mini_Moog PRIVATE 
+# --- 3. インクルードディレクトリの設宁E---
+target_include_directories(MonophonicSynth PRIVATE 
     source
     "${VST3_SDK_ROOT}"
     "${VST3_SDK_ROOT}/vstgui4"
 )
 
-# --- 4. プリプロセッサの定義 ---
-target_compile_definitions(Mini_Moog PRIVATE 
+# --- 4. プリプロセチE��の定義 ---
+target_compile_definitions(MonophonicSynth PRIVATE 
     VSTGUI_LIVE_EDITING=1
     DEVELOPMENT=1
     WIN32=1
     _WINDOWS=1
 )
 
-# --- 5. リンカー設定 (SDKのビルド済み.libを直接リンク) ---
+# --- 5. リンカー設宁E(SDKのビルド済み.libを直接リンク) ---
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
     set(VST3_LIB_DIR "${VST3_SDK_ROOT}/out/build/x64-Debug/lib")
 else()
     set(VST3_LIB_DIR "${VST3_SDK_ROOT}/out/build/x64-Release/lib")
 endif()
 
-target_link_libraries(Mini_Moog PRIVATE 
+target_link_libraries(MonophonicSynth PRIVATE 
     "${VST3_LIB_DIR}/base.lib"
     "${VST3_LIB_DIR}/sdk.lib"
     "${VST3_LIB_DIR}/sdk_common.lib"
@@ -63,12 +63,12 @@ target_link_libraries(Mini_Moog PRIVATE
 
 # --- 6. VST3プラグインとしての仕上げ ---
 # 拡張子を .vst3 に
-set_target_properties(Mini_Moog PROPERTIES SUFFIX ".vst3")
+set_target_properties(MonophonicSynth PROPERTIES SUFFIX ".vst3")
 
-# 例外処理の有効化
-target_compile_options(Mini_Moog PRIVATE /EHsc)
+# 例外�E琁E�E有効匁E
+target_compile_options(MonophonicSynth PRIVATE /EHsc)
 
-# Windows用エクスポート関数の定義
+# Windows用エクスポ�Eト関数の定義
 if(WIN32)
-    target_link_options(Mini_Moog PRIVATE /EXPORT:GetPluginFactory /EXPORT:InitDll /EXPORT:ExitDll)
+    target_link_options(MonophonicSynth PRIVATE /EXPORT:GetPluginFactory /EXPORT:InitDll /EXPORT:ExitDll)
 endif()

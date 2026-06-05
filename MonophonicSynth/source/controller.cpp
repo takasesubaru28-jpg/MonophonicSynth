@@ -14,7 +14,7 @@
 
 namespace Steinberg {
 	namespace Vst {
-		namespace miniMoog_typeT {
+		namespace MonophonicSynth {
 			// ƒNƒ‰ƒX‚ğ‰Šú‰»‚·‚éŠÖ”
 			tresult PLUGIN_API Controller::initialize(FUnknown* context)
 			{

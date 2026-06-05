@@ -12,7 +12,7 @@
 
 namespace Steinberg {
 	namespace Vst {
-		namespace miniMoog_typeT {
+		namespace MonophonicSynth {
 
 			//============================================================
 			// コンストラクタ

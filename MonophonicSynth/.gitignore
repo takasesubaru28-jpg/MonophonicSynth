@@ -1,0 +1,4 @@
+build/*
+
+vst3sdk/*
+!vst3sdk/.gitkeep

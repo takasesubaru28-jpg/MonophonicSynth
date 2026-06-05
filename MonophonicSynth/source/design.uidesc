@@ -1,0 +1,500 @@
+{
+  "vstgui-ui-description": {
+    "version": "1",
+    "bitmaps": {
+      "background": { "path": "moog.png" },
+      "knob_anim": { "path": "Moog_knob_strip.png" },
+      "knob_wave": { "path": "WaveFormKnob.png" },
+      "knob_range": { "path": "RangeKnob.png" },
+      "togle": {"path": "togle_strip.png","scale": "1"},
+      "togle_LR": {"path": "togle_LR.png","scale": "1"},
+      "togle_UD": {"path": "togle_UD.png","scale": "1"}
+    },
+    "fonts": {},
+    "colors": {},
+    "control-tags": {
+      "TUNE_Osc1": "0",
+      "RANGE_Osc1": "1",
+      "WAVEFORM_Osc1": "2",
+      "FREQUENCY_Osc2": "3",
+      "RANGE_Osc2": "4",
+      "WAVEFORM_Osc2": "5",
+      "FREQUENCY_Osc3": "6",
+      "RANGE_Osc3": "7",
+      "WAVEFORM_Osc3": "8",
+      "CONTROL_Osc3": "9",
+      "OSILLATORMODULATION": "10",
+      "KYBD_TRACK_1": "11",
+      "KYBD_TRACK_2": "12",
+      "OSC3_FILTER": "400",
+      "NOISE_LFO": "401",
+      "MODULATIONMIX": "402",
+      "GLIDE_VAL": "403",
+      "VOLUME_OSC1": "100",
+      "VOLUME_OSC2": "101",
+      "VOLUME_OSC3": "102",
+      "NOISEVOLUME": "103",
+      "WHITEPINK": "104",
+      "CUTOFFFREQUENCY": "300",
+      "EMPHASIS": "301",
+      "AMOUNTOFCONTOUR": "302",
+      "ATTACKTIME_VOL": "303",
+      "DECAYTIME_VOL": "304",
+      "SUSTAINLEVEL_VOL": "305",
+      "ATTACKTIME_FREQ": "306",
+      "DECAYTIME_FREQ": "307",
+      "SUSTAINLEVEL_FREQ": "308",
+      "FILTERMODULATION": "309",
+      "VOLUME": "200",
+      "LFORATE": "500",
+      "GLIDE": "501",
+      "DECAY": "502"
+    },
+    "templates": {
+      "view": {
+        "attributes": {
+          "bitmap": "background",
+          "class": "CViewContainer",
+          "size": "1200, 600",
+          "mouse-enabled": "true",
+          "background-color": "~ GreyCColor",
+          "background-color-draw-style": "filled and stroked"
+        },
+        "children": {
+          "TuneKnob": {
+            "attributes": {
+              "class": "CAnimKnob",
+              "control-tag": "TUNE_Osc1",
+              "bitmap": "knob_anim",
+              "origin": "215, 80",
+              "size": "70, 70",
+              "height-of-one-image": "70",
+              "sub-pixmaps": "61",
+              "transparent": "true"
+            }
+          },
+          "LfoRate": {
+            "attributes": {
+              "class": "CAnimKnob",
+              "control-tag": "LFORATE",
+              "bitmap": "knob_anim",
+              "origin": "157, 80",
+              "size": "70, 70",
+              "height-of-one-image": "70",
+              "sub-pixmaps": "61",
+              "transparent": "true"
+            }
+          },
+          "RANGE_Osc1": {
+            "attributes": {
+              "class": "CAnimKnob",
+              "control-tag": "RANGE_Osc1",
+              "bitmap": "knob_range",
+              "origin": "283, 95",
+              "size": "75, 75",
+              "height-of-one-image": "75",
+              "sub-pixmaps": "6",
+              "transparent": "true"
+            }
+          },
+          "WaveForm1": {
+            "attributes": {
+              "class": "CAnimKnob",
+              "control-tag": "WAVEFORM_Osc1",
+              "bitmap": "knob_wave",
+              "origin": "400, 95",
+              "size": "75, 75",
+              "height-of-one-image": "75",
+              "sub-pixmaps": "6",
+              "transparent": "true"
+            }
+          },
+          "FREQUENCY_Osc2": {
+            "attributes": {
+              "class": "CAnimKnob",
+              "control-tag": "FREQUENCY_Osc2",
+              "bitmap": "knob_anim",
+              "origin": "347, 143",
+              "size": "70, 70",
+              "height-of-one-image": "70",
+              "sub-pixmaps": "61",
+              "transparent": "true"
+            }
+          },
+          "RANGE_Osc2": {
+            "attributes": {
+              "class": "CAnimKnob",
+              "control-tag": "RANGE_Osc2",
+              "bitmap": "knob_range",
+              "origin": "283, 140",
+              "size": "75, 75",
+              "height-of-one-image": "75",
+              "sub-pixmaps": "6",
+              "transparent": "true"
+            }
+          },
+          "WaveForm2": {
+            "attributes": {
+              "class": "CAnimKnob",
+              "control-tag": "WAVEFORM_Osc2",
+              "bitmap": "knob_wave",
+              "origin": "400, 140",
+              "size": "75, 75",
+              "height-of-one-image": "75",
+              "sub-pixmaps": "6",
+              "transparent": "true"
+            }
+          },
+          "FREQUENCY_Osc3": {
+            "attributes": {
+              "class": "CAnimKnob",
+              "control-tag": "FREQUENCY_Osc3",
+              "bitmap": "knob_anim",
+              "origin": "347, 193",
+              "size": "70, 70",
+              "height-of-one-image": "70",
+              "sub-pixmaps": "61",
+              "transparent": "true"
+            }
+          },
+          "RANGE_Osc3": {
+            "attributes": {
+              "class": "CAnimKnob",
+              "control-tag": "RANGE_Osc3",
+              "bitmap": "knob_range",
+              "origin": "283, 190",
+              "size": "75, 75",
+              "height-of-one-image": "75",
+              "sub-pixmaps": "6",
+              "transparent": "true"
+            }
+          },
+          "WaveForm3": {
+            "attributes": {
+              "class": "CAnimKnob",
+              "control-tag": "WAVEFORM_Osc3",
+              "bitmap": "knob_wave",
+              "origin": "400, 190",
+              "size": "75, 75",
+              "height-of-one-image": "75",
+              "sub-pixmaps": "6",
+              "transparent": "true"
+            }
+          },
+          "Osc3ctr": {
+            "attributes": {
+              "class": "COnOffButton",
+              "control-tag": "CONTROL_Osc3",
+              "bitmap": "togle",
+              "origin": "265, 225",
+              "size": "50, 50",
+              "height-of-one-image": "50",
+              "sub-pixmaps": "2",
+              "transparent": "true"
+            }
+          },
+          "Oscmod": {
+            "attributes": {
+              "class": "COnOffButton",
+              "control-tag": "OSILLATORMODULATION",
+              "bitmap": "togle",
+              "origin": "250, 137",
+              "size": "50, 50",
+              "height-of-one-image": "50",
+              "sub-pixmaps": "2",
+              "transparent": "true"
+            }
+          },
+          "Osc3Filter": {
+            "attributes": {
+              "class": "COnOffButton",
+              "control-tag": "OSC3_FILTER",
+              "bitmap": "togle_LR",
+              "origin": "192, 215",
+              "size": "50, 50",
+              "height-of-one-image": "50",
+              "sub-pixmaps": "2",
+              "transparent": "true"
+            }
+          },
+          "NoiseLfo": {
+            "attributes": {
+              "class": "COnOffButton",
+              "control-tag": "NOISE_LFO",
+              "bitmap": "togle_LR",
+              "origin": "192, 192",
+              "size": "50, 50",
+              "height-of-one-image": "50",
+              "sub-pixmaps": "2",
+              "transparent": "true"
+            }
+          },
+          "ModMix": {
+            "attributes": {
+              "class": "CAnimKnob",
+              "control-tag": "MODULATIONMIX",
+              "bitmap": "knob_anim",
+              "origin": "215, 155",
+              "size": "70, 70",
+              "height-of-one-image": "70",
+              "sub-pixmaps": "61",
+              "transparent": "true"
+            }
+          },
+          "GlideVal": {
+            "attributes": {
+              "class": "CAnimKnob",
+              "control-tag": "GLIDE_VAL",
+              "bitmap": "knob_anim",
+              "origin": "157, 155",
+              "size": "70, 70",
+              "height-of-one-image": "70",
+              "sub-pixmaps": "61",
+              "transparent": "true"
+            }
+          },
+          "VolOsc1": {
+            "attributes": {
+              "class": "CAnimKnob",
+              "control-tag": "VOLUME_OSC1",
+              "bitmap": "knob_anim",
+              "origin": "487, 98",
+              "size": "70, 70",
+              "height-of-one-image": "70",
+              "sub-pixmaps": "61",
+              "transparent": "true"
+            }
+          },
+          "VolOsc2": {
+            "attributes": {
+              "class": "CAnimKnob",
+              "control-tag": "VOLUME_OSC2",
+              "bitmap": "knob_anim",
+              "origin": "487, 143",
+              "size": "70, 70",
+              "height-of-one-image": "70",
+              "sub-pixmaps": "61",
+              "transparent": "true"
+            }
+          },
+          "VolOsc3": {
+            "attributes": {
+              "class": "CAnimKnob",
+              "control-tag": "VOLUME_OSC3",
+              "bitmap": "knob_anim",
+              "origin": "487, 193",
+              "size": "70, 70",
+              "height-of-one-image": "70",
+              "sub-pixmaps": "61",
+              "transparent": "true"
+            }
+          },
+          "NoiseVol": {
+            "attributes": {
+              "class": "CAnimKnob",
+              "control-tag": "NOISEVOLUME",
+              "bitmap": "knob_anim",
+              "origin": "587, 175",
+              "size": "70, 70",
+              "height-of-one-image": "70",
+              "sub-pixmaps": "61",
+              "transparent": "true"
+            }
+          },
+          "WhitePink": {
+            "attributes": {
+              "class": "COnOffButton",
+              "control-tag": "WHITEPINK",
+              "bitmap": "togle_UD",
+              "origin": "647, 180",
+              "size": "50, 50",
+              "height-of-one-image": "50",
+              "sub-pixmaps": "2",
+              "transparent": "true"
+            }
+          },
+          "CutFreq": {
+            "attributes": {
+              "class": "CAnimKnob",
+              "control-tag": "CUTOFFFREQUENCY",
+              "bitmap": "knob_anim",
+              "origin": "703, 98",
+              "size": "70, 70",
+              "height-of-one-image": "70",
+              "sub-pixmaps": "61",
+              "transparent": "true"
+            }
+          },
+          "Emphasis": {
+            "attributes": {
+              "class": "CAnimKnob",
+              "control-tag": "EMPHASIS",
+              "bitmap": "knob_anim",
+              "origin": "765, 98",
+              "size": "70, 70",
+              "height-of-one-image": "70",
+              "sub-pixmaps": "61",
+              "transparent": "true"
+            }
+          },
+          "AmountOfCountour": {
+            "attributes": {
+              "class": "CAnimKnob",
+              "control-tag": "AMOUNTOFCONTOUR",
+              "bitmap": "knob_anim",
+              "origin": "825, 98",
+              "size": "70, 70",
+              "height-of-one-image": "70",
+              "sub-pixmaps": "61",
+              "transparent": "true"
+            }
+          },
+          "AttacktimeVol": {
+            "attributes": {
+              "class": "CAnimKnob",
+              "control-tag": "ATTACKTIME_VOL",
+              "bitmap": "knob_anim",
+              "origin": "703, 145",
+              "size": "70, 70",
+              "height-of-one-image": "70",
+              "sub-pixmaps": "61",
+              "transparent": "true"
+            }
+          },
+          "DecayTimeVol": {
+            "attributes": {
+              "class": "CAnimKnob",
+              "control-tag": "DECAYTIME_VOL",
+              "bitmap": "knob_anim",
+              "origin": "765, 145",
+              "size": "70, 70",
+              "height-of-one-image": "70",
+              "sub-pixmaps": "61",
+              "transparent": "true"
+            }
+          },
+          "SustainLevelVol": {
+            "attributes": {
+              "class": "CAnimKnob",
+              "control-tag": "SUSTAINLEVEL_VOL",
+              "bitmap": "knob_anim",
+              "origin": "825, 145",
+              "size": "70, 70",
+              "height-of-one-image": "70",
+              "sub-pixmaps": "61",
+              "transparent": "true"
+            }
+          },
+          "AttacktimeFreq": {
+            "attributes": {
+              "class": "CAnimKnob",
+              "control-tag": "ATTACKTIME_FREQ",
+              "bitmap": "knob_anim",
+              "origin": "703, 193",
+              "size": "70, 70",
+              "height-of-one-image": "70",
+              "sub-pixmaps": "61",
+              "transparent": "true"
+            }
+          },
+          "DecayTimeFreq": {
+            "attributes": {
+              "class": "CAnimKnob",
+              "control-tag": "DECAYTIME_FREQ",
+              "bitmap": "knob_anim",
+              "origin": "765, 193",
+              "size": "70, 70",
+              "height-of-one-image": "70",
+              "sub-pixmaps": "61",
+              "transparent": "true"
+            }
+          },
+          "SustainLvelFreq": {
+            "attributes": {
+              "class": "CAnimKnob",
+              "control-tag": "SUSTAINLEVEL_FREQ",
+              "bitmap": "knob_anim",
+              "origin": "825, 193",
+              "size": "70, 70",
+              "height-of-one-image": "70",
+              "sub-pixmaps": "61",
+              "transparent": "true"
+            }
+          },
+          "FilterModulation": {
+            "attributes": {
+              "class": "COnOffButton",
+              "control-tag": "FILTERMODULATION",
+              "bitmap": "togle",
+              "origin": "673, 105",
+              "size": "50, 50",
+              "height-of-one-image": "50",
+              "sub-pixmaps": "2",
+              "transparent": "true"
+            }
+          },
+          "KybdTrack1": {
+            "attributes": {
+              "class": "COnOffButton",
+              "control-tag": "KYBD_TRACK_1",
+              "bitmap": "togle",
+              "origin": "673, 120",
+              "size": "50, 50",
+              "height-of-one-image": "50",
+              "sub-pixmaps": "2",
+              "transparent": "true"
+            }
+          },
+          "KybdTrack2": {
+            "attributes": {
+              "class": "COnOffButton",
+              "control-tag": "KYBD_TRACK_2",
+              "bitmap": "togle",
+              "origin": "673, 145",
+              "size": "50, 50",
+              "height-of-one-image": "50",
+              "sub-pixmaps": "2",
+              "transparent": "true"
+            }
+          },
+          "Volume": {
+            "attributes": {
+              "class": "CAnimKnob",
+              "control-tag": "VOLUME",
+              "bitmap": "knob_anim",
+              "origin": "895, 98",
+              "size": "70, 70",
+              "height-of-one-image": "70",
+              "sub-pixmaps": "61",
+              "transparent": "true"
+            }
+          },
+          "Glide": {
+            "attributes": {
+              "class": "COnOffButton",
+              "control-tag": "GLIDE",
+              "bitmap": "togle",
+              "origin": "157, 120",
+              "size": "50, 50",
+              "height-of-one-image": "50",
+              "sub-pixmaps": "2",
+              "transparent": "true"
+            }
+          },
+          "Decay": {
+            "attributes": {
+              "class": "COnOffButton",
+              "control-tag": "DECAY",
+              "bitmap": "togle",
+              "origin": "215, 120",
+              "size": "50, 50",
+              "height-of-one-image": "50",
+              "sub-pixmaps": "2",
+              "transparent": "true"
+            }
+          }
+        }
+      }
+    }
+  }
+}

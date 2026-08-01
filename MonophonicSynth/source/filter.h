@@ -19,7 +19,7 @@ namespace Steinberg {
             public:
                  inline void setFreq(float frequency);
                  inline void setFs(float F);
-                 inline void setEmphasis(int emp);
+                 inline void setEmphasis(float emp);
                  inline void setFilterModulation(bool fm);
                  inline float getFreq() { return freq; }
 
@@ -53,7 +53,7 @@ namespace Steinberg {
             protected:
                 float freq;
                 float Fs;
-                int k;
+                float k;
                 float omega_c;
 
                 float x0_n0;
@@ -98,7 +98,7 @@ namespace Steinberg {
                 a1 = (0.3f * omega_c - 1.3f * Fs) / (omega_c + 1.3f * Fs);
             }
 
-             inline void Filter::setEmphasis(int emp)
+             inline void Filter::setEmphasis(float emp)
             {
                 k = emp;
             }

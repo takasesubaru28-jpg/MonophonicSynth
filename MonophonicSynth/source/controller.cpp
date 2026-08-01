@@ -266,7 +266,7 @@ namespace Steinberg {
 				ParamValue plainvalue;
 				if (wrapper.scanFloat(plainvalue))
 				{
-					valueNormalized = toNormalized(valueNormalized);
+					valueNormalized = toNormalized(plainvalue);
 
 					return true;
 				}
@@ -310,7 +310,7 @@ namespace Steinberg {
 				ParamValue plainvalue;
 				if (wrapper.scanFloat(plainvalue))
 				{
-					valueNormalized = toNormalized(valueNormalized);
+					valueNormalized = toNormalized(plainvalue);
 
 					return true;
 				}

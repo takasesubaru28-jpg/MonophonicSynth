@@ -39,14 +39,19 @@ namespace Steinberg {
 				frequency_Osc3 = 0.0f;
 				range_Osc3 = 1.0f;
 				waveform_Osc3 = WaveType::tri;
-				controll_Osc3 = 1.0f;
+				controll_Osc3 = true;
 
-				osillatorModulation = 0.0f;
+				osillatorModulation = 1.0f;
 
 				// Contorollers
-				osc3Filter = true;
+				// A normalized value of 1 selects the filter envelope in process().
+				osc3Filter = false;
 				noiseLfo = true;
 				modulationMix = 0.5f;
+				glide_val = 0.5f;
+				targetPitch = 0.0f;
+				phase_glide = 0.0f;
+				glideRate = 0.0f;
 
 				// Mixer&Noise
 				volume1 = 1.0f;
@@ -57,7 +62,8 @@ namespace Steinberg {
 
 				// modifires
 				//filter = Filter();
-				emphasis = 3.0f;
+				emphasis = 1.2f;
+				filter.setEmphasis(emphasis);
 				cut_freq = 1000.0f;
 				FreqContour.setOrg(cut_freq);
 
@@ -65,14 +71,21 @@ namespace Steinberg {
 				filter_mod = 0.0f;
 				loud_mod = 0.0f;
 
-				amountContour_freq = 0.5f;
-				attackTime_freq = 5.0f;
-				decayTime_freq = 5.0f;
-				sustainLevel_freq = 1.0f;
+				amountContour_freq = 5000.0f;
+				attackTime_freq = 0.5f;
+				decayTime_freq = 0.5f;
+				sustainLevel_freq = 0.5f;
+				FreqContour.setAmount(amountContour_freq);
+				FreqContour.setAttack(attackTime_freq);
+				FreqContour.setDecay(decayTime_freq);
+				FreqContour.setSustain(sustainLevel_freq);
 
-				attackTime_vol = 5.0f;
-				decayTime_vol = 5.0f;
-				sustainLevel_vol = 1.0f;
+				attackTime_vol = 0.5f;
+				decayTime_vol = 0.5f;
+				sustainLevel_vol = 0.5f;
+				VolumeContour.setAttack(attackTime_vol);
+				VolumeContour.setDecay(decayTime_vol);
+				VolumeContour.setSustain(sustainLevel_vol);
 
 				// アウトプットセクションパラメータ
 				volume = 0.5f;
@@ -80,10 +93,14 @@ namespace Steinberg {
 				mainOutput = 1.0f;
 
 				// LeftHand
-				lfoRate = 0.5f;
-				glide = false;
-				decay = false;
+				lfoRate = 10.0f;
+				glide = true;
+				decay = true;
 				push_pull = WaveType::tri;
+				kybdTrack1 = true;
+				kybdTrack2 = true;
+				modWheel = 0.0f;
+				pitchBend = 0.0f;
 				lfo.setWaveType(push_pull);
 				lfo.setFrequency(lfoRate);
 			}
@@ -163,14 +180,17 @@ namespace Steinberg {
 
 								case WAVEFORM_Osc1:
 								{
-									WaveType type = static_cast<WaveType>(static_cast<int>(value * 5));
+									const int index = static_cast<int>(value * 5.999f);
+									const WaveType types[] = { WaveType::tri, WaveType::tri_saw, WaveType::saw,
+										WaveType::pulse, WaveType::pulse_wide, WaveType::pulse_narrow };
+									WaveType type = types[index];
 									osc1.setWaveType(type);
 									break;
 								}
 
 								case FREQUENCY_Osc2:
 								{
-									frequency_Osc2 = value * 7.0f - 7.0f;
+									frequency_Osc2 = value * 14.0f - 7.0f;
 									break;
 								}
 
@@ -194,14 +214,17 @@ namespace Steinberg {
 
 								case WAVEFORM_Osc2:
 								{
-									WaveType type = static_cast<WaveType>(static_cast<int>(value * 5));
+									const int index = static_cast<int>(value * 5.999f);
+									const WaveType types[] = { WaveType::tri, WaveType::tri_saw, WaveType::saw,
+										WaveType::pulse, WaveType::pulse_wide, WaveType::pulse_narrow };
+									WaveType type = types[index];
 									osc2.setWaveType(type);
 									break;
 								}
 
 								case FREQUENCY_Osc3:
 								{
-									frequency_Osc3 = value * 7.0f - 7.0f;
+									frequency_Osc3 = value * 14.0f - 7.0f;
 									break;
 								}
 
@@ -225,7 +248,10 @@ namespace Steinberg {
 
 								case WAVEFORM_Osc3:
 								{
-									WaveType type = static_cast<WaveType>(static_cast<int>(value * 5));
+									const int index = static_cast<int>(value * 5.999f);
+									const WaveType types[] = { WaveType::tri, WaveType::rev_saw, WaveType::saw,
+										WaveType::pulse, WaveType::pulse_wide, WaveType::pulse_narrow };
+									WaveType type = types[index];
 									osc3.setWaveType(type);
 									break;
 								}
@@ -280,7 +306,7 @@ namespace Steinberg {
 
 								case NOISEVOLUME:
 								{
-									volume_noise = value / 10.0f;
+									volume_noise = value;
 									break;
 								}
 
